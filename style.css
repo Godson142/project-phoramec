@@ -2031,15 +2031,24 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
-  :root {
-    --header-height: 120px; /* Expand header to hold multi-row menu in mobile */
+  .header {
+    position: relative;
+    height: auto;
+    box-shadow: none;
+    border-bottom: 1px solid var(--border-color);
   }
-  
+
   .header-container {
+    height: auto;
     flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 16px;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 16px 14px;
+  }
+
+  #app-main-content {
+    margin-top: 0;
+    min-height: auto;
   }
   
   .logo-area {

@@ -161,6 +161,7 @@ function loadDataFromStorage() {
           { id: "prod-6", title: "iPhone 15 Pro Max (256GB, Natural Titanium)", price: 1199, qty: 1 }
         ],
         total: 1199,
+        payChannel: "simulated",
         date: "2026-06-26",
         statusStep: 1, // Shipped from Source
         statusHistory: [
@@ -864,7 +865,7 @@ function renderStandardOrderTimeline(order) {
       <div class="track-card-header">
         <div class="track-title-block">
           <h4>Standard Import Purchase</h4>
-          <span class="track-id">ID: ${order.id.toUpperCase()} • Sourced globally</span>
+          <span class="track-id">ID: ${(order.id || "").toUpperCase()} • Sourced globally</span>
         </div>
         <div class="track-meta-block">
           <div class="track-price">$${order.total.toFixed(2)}</div>
@@ -917,7 +918,7 @@ function renderCustomRequestTimeline(req) {
       <div class="track-card-header">
         <div class="track-title-block">
           <h4 style="color:var(--accent-color);">Custom Concierge Request</h4>
-          <span class="track-id">ID: ${req.id.toUpperCase()} • VIP Private Sourcing</span>
+          <span class="track-id">ID: ${(req.id || "").toUpperCase()} • VIP Private Sourcing</span>
         </div>
         <div class="track-meta-block">
           <div class="track-price">$${req.budget.toFixed(2)} <span style="font-size:11px; font-weight:500; color:var(--text-tertiary);">Budget</span></div>
@@ -981,7 +982,7 @@ function renderAdminSubmittedRequests() {
               <h5>Custom Request: ${req.itemName}</h5>
               <span class="client-tel">Submit date: ${req.date} • VIP Sourcing</span>
             </div>
-            <span class="badge" style="background-color:var(--accent-color); color:#000;">ID: ${req.id.toUpperCase()}</span>
+            <span class="badge" style="background-color:var(--accent-color); color:#000;">ID: ${(req.id || "").toUpperCase()}</span>
           </div>
 
           <div class="admin-card-item-info">
@@ -1051,12 +1052,12 @@ function renderAdminCustomerOrders() {
               <h5>Invoice Stub: ${order.customerName}</h5>
               <span class="client-tel">WhatsApp: ${order.customerPhone} • ${order.date}</span>
             </div>
-            <span class="badge">ID: ${order.id.toUpperCase()}</span>
+            <span class="badge">ID: ${(order.id || "").toUpperCase()}</span>
           </div>
 
           <div class="admin-card-item-info">
             <strong>Shipping Destination:</strong> ${order.customerAddress}<br>
-            <strong>Payment Mode:</strong> Simulated (${order.payChannel.toUpperCase()})<br>
+            <strong>Payment Mode:</strong> Simulated (${(order.payChannel || "simulated").toUpperCase()})<br>
             <div style="margin-top:8px;"><strong>Cart Payload:</strong><br>${itemsStr}</div>
           </div>
 
