@@ -1,0 +1,6 @@
+{
+  "name": "Phoramec Imports Avenue",
+  "description": "An elegant, responsive e-commerce web application for PHORAMEC IMPORTS AVENUE, featuring dynamic theme switching, custom orders, shopping cart, interactive walkthrough, and owner dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
